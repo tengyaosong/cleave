@@ -1,0 +1,33 @@
+# Input File
+
+  Length:
+    0.                        [error][property zerolength]
+    1.
+    size.
+    maxint.                   [single]                   
+
+  Content:
+    alphanumeric characters.  [if !zerolength]
+    DELIM.                    [if !zerolength]
+
+# Cleave pattern
+
+  Value:
+    value = 0.                [error]
+    0 < value <= input length.[property cleavesite]
+    value > input length.     [if !cleavesite]
+    <0.                       [error]
+    maxint.                   [single]
+    minint.                   [error]
+  
+  Presence of one value:
+    Present.                  [property onevalue]
+    Not present.              [if !onevalue]
+
+  Presence of more than one value:
+    Present.                  [if !onevalue] [property morethanone]
+    Not present.              [if !morethanone]
+    
+  Presence of from-to pattern:
+    Present.                  [property fromto]
+    Not present.              [if !fromto]   
