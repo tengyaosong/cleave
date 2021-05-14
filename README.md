@@ -40,3 +40,29 @@ Use one and only one of **-c** or **-f**. Each *LIST* consists of either one ran
 
 If **-d** is specified, *DELIM* must consist of a single character. Selected fields are printed to stdout delimited by *DELIM* (**default=TAB**).  Delimiter options (**-d**) are only valid for field selection (**-f**), and they can appear in either order.  There will always be one output line for each input line.
 
+### Example of Usage
+In the following, “↵” represents a newline character, and “→” represents a TAB character.
+
+**Example 1:** 
+
+    cleave -c 2 FILE
+
+input FILE:
+
+    0123456789↵
+    abcdefghi↵
+
+stdout:
+    
+    1↵
+    b↵
+**Example 2:**
+
+    cleave -c 15 FILE
+input FILE:
+    
+    0123456789↵
+stdout:
+
+    ↵
+
